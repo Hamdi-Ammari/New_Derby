@@ -1,0 +1,13 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+.MuiButton-colorInherit{
+    background-color: #B11E1E !important;
+}
+.MuiButton-colorInherit:hover{
+    background-color: #A41617 !important;
+}
+
