@@ -1,5 +1,5 @@
 import React from 'react';
-import { useHistory,Redirect,Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import {Typography,Button} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -11,10 +11,11 @@ import { makeStyles } from '@material-ui/core/styles';
         color:'#fff',
         textTransform:'uppercase',
         letterSpacing:'2px',
-        fontWeight:'bold',
         cursor:'pointer',
-        [theme.breakpoints.down('xs')] : {
-            marginTop:'5px'
+        fontSize:'38px',
+        [theme.breakpoints.down('sm')] : {
+            marginTop:'5px',
+            fontSize:'28px'
          },
     }
 }))
@@ -29,7 +30,7 @@ const Logo = () => {
     return(
         <form onSubmit={handleSubmit}>
             <Button type='submit' className={classes.btn}>
-                <Typography className={classes.logo} variant='h2'>derby</Typography>
+                <Typography className={classes.logo} variant='h2'>new derby</Typography>
             </Button>
         </form>
     )

@@ -13,7 +13,7 @@ export default makeStyles ((theme) => ({
         position:'relative',
         [theme.breakpoints.down('sm')] : {
             width:'100%',
-            paddingLeft:'5px',
+            paddingLeft:'15px',
         },
     },
     equipes:{
@@ -21,13 +21,21 @@ export default makeStyles ((theme) => ({
         flex:'3',
     },
     equipeText:{
-        fontWeight:'bold',
-        textTransform:'uppercase'
+        textTransform:'uppercase',
+        [theme.breakpoints.down('sm')] : {
+            fontSize:'17px'
+        },
     },
     matchDate:{
         flex:'3',
         [theme.breakpoints.down('sm')] : {
             flex:'1'
+        },
+    },
+    matchDateText:{
+        fontSize:'17px',
+        [theme.breakpoints.down('sm')] : {
+            fontSize:'15px'
         },
     },
     byeMatch:{

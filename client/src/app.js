@@ -1,26 +1,28 @@
 import React,{useEffect} from 'react';
-import {useDispatch} from 'react-redux';
+import {useDispatch,useSelector} from 'react-redux';
 import {BrowserRouter as Router,Route,Switch} from 'react-router-dom';
 import PrivateRoute from './components/PrivateRoute';
 import Home from './components/home/Home';
-import Auth from './components/auth/Auth';
-import VideoPlayer from './components/home/videoPlayer/VideoPlayer';
+import Login from './components/auth/login/Login';
+import Register from './components/auth/register/Register';
 import {getMatches} from './actions/matches';
 
 const App = () => {
     const dispatch = useDispatch();
+    const {matchToBuy} = useSelector(state => state.matchReducer);
     
     useEffect(() => {
-        dispatch(getMatches())
-    },[dispatch]);
+        dispatch(getMatches());
+    },[dispatch,matchToBuy]);
+
 
 
     return(
         <Router>
             <Switch>
-                <Route path='match/:id' exact component={VideoPlayer}/>
-                <Route path='/auth' exact component={Auth}/>
                 <PrivateRoute path='/' exact component={Home}/>
+                <Route path='/auth/register' exact component={Register}/>
+                <Route path='/auth/login' exact component={Login}/>
             </Switch>
         </Router>
     )

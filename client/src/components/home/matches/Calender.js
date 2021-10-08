@@ -17,7 +17,8 @@ const useStyles = makeStyles({
         position:'relative'
     },
     text:{
-        textTransform:'uppercase'
+        textTransform:'uppercase',
+        fontSize:'18px'
     },
     btnRight:{
         position:'absolute',
@@ -44,32 +45,6 @@ const MatchesCalender = ({date,setDate}) => {
     const returnDate = () => {
         setDate('today')
     }
-    
-    /*
-    const dayMatches = allMatches.map(m => m.date);
-    var today = moment(new Date()).format("DD/MM/YYYY");
-    const d = dayMatches.map(m => new Date(m));
-    const sortedMatches = d.sort((a,b) => (a.getTime() > b.getTime() ? 1 : -1));
-    const momento = sortedMatches.map(mo => moment(mo).format('MM/DD/YYYY'));
-    const filt = momento.filter(f => f >= today);
-    const theDate = filt[0];
-
-    //var today = moment().format("DD/MM/YYYY");
-    //var tomorrow = moment().add(1,'days').format("DD/MM/YYYY");
-    //var nexttomorrow = moment().add(2,'days').format("DD/MM/YYYY");
-    //const onChangeHandle = (e) => {
-         //setDate(e.target.value)
-   // }
-           <Paper className={classes.dateBox}>
-            <Button className={classes.btn} onClick={returnDate}>
-                <ArrowLeftIcon fontSize='large' className={classes.arrow}/>
-            </Button>
-            <Button className={classes.btn} onClick={changeDate}>
-                <ArrowRightIcon fontSize='large' className={classes.arrow}/>
-            </Button>
-           <Typography className={classes.text} variant='h6'>{date}</Typography>
-        </Paper>
-    */
 
     return(
         <Paper className={classes.dateBox}>
@@ -84,7 +59,7 @@ const MatchesCalender = ({date,setDate}) => {
             )}
 
 
-            <Typography className={classes.text} variant='h6'>{date}</Typography>
+            <Typography className={classes.text} variant='h1'>{date}</Typography>
         </Paper>
     )
 }

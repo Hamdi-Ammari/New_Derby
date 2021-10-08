@@ -18,9 +18,11 @@ const UserIcon = () => {
     }
     const deconnexion = () => {
         dispatch(logout());
-        history.push('/auth');
+        history.push('/auth/login');
         setUser(null);
     }
+
+
     return (
         <div className={classes.userBox}>
             <IconButton onClick={toggleBarSwitch}>
@@ -33,9 +35,6 @@ const UserIcon = () => {
                     <Typography variant='caption'>{user?.result?.email}</Typography>
                 </div>
                 <div className={classes.myMatches}>
-                    <Button fullWidth className={classes.myMatchesBtn}>My Matches</Button>
-                </div>
-                <div className={classes.deconnexion}>
                     <Button fullWidth variant='outlined' className={classes.decoButton} onClick={deconnexion}>deconnexion</Button>
                 </div>
             </Paper>

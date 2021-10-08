@@ -5,7 +5,14 @@ const matchSchema = mongoose.Schema({
     team2:String,
     date:String,
     time:String,
-    payed:Boolean
+    payed:{
+        type:Boolean,
+        default:false
+    },
+    buyers:{
+        type:[String],
+        default:[]
+    }
 })
 
 var MatchModel = mongoose.model('MatchModel',matchSchema);

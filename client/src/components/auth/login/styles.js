@@ -1,25 +1,34 @@
 import { makeStyles } from '@material-ui/core/styles';
 
-export default makeStyles(() =>({
+export default makeStyles((theme) =>({
     container:{
         background:'#2C3E50',
         minHeight:'100vh',
         paddingTop:'5vh',
     },
-    logo:{
+    logoDiv:{
+        display:'flex',
+        justifyContent:'center',
+        alignItems:'center',
+        height:'30vh',
+    },
+    logoTitle:{
         color:'#fff',
         textTransform:'uppercase',
         letterSpacing:'2px',
-        fontWeight:'bold',
-        textAlign:'center',
-        padding:'2vh 0 10vh'
+        [theme.breakpoints.down('sm')] : {
+            fontSize:'65px'
+        }
     },
     inputContainer:{
         minHeight:'50vh',
     },
     form:{
         width:'90%',
-        margin:'auto'
+        margin:'auto',
+        [theme.breakpoints.down('sm')] : {
+            width:'80%'
+        }
     },
     input:{
         width:'100%',
@@ -30,24 +39,32 @@ export default makeStyles(() =>({
         border:'none',
         textAlign:'center',
         fontSize:'16px',
-        color:'black'
+        color:'black',
+        [theme.breakpoints.down('sm')] : {
+            padding:'7px',
+        }
     },
     button:{
         background:'#B11E1E',
         marginBottom:'10px',
         color:'#fff',
         fontSize:'16px',
-        fontWeight:'bold',
-        cursor:'pointer'
+        cursor:'pointer',
+        [theme.breakpoints.down('sm')] : {
+            fontSize:'14px'
+        }
     },
     orText:{
         textAlign:'center',
         marginBottom:'10px',
     },
     googleButton:{
-        fontWeight:'bold',
         padding:'7px',
         marginBottom:'10px',
+        [theme.breakpoints.down('sm')] : {
+            fontSize:'13px',
+            padding:'5px',
+        }
     },
     singUpSwitch:{
         width:'90%',
@@ -57,6 +74,9 @@ export default makeStyles(() =>({
     singUpSwitchText:{
         color:'#fff',
         textDecoration:'underline',
-        cursor:'pointer'
+        cursor:'pointer',
+        [theme.breakpoints.down('sm')] : {
+            fontSize:'13px'
+        }
     }
 }))

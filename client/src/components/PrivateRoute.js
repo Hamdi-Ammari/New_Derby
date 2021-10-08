@@ -2,7 +2,7 @@ import React from 'react';
 import {Redirect,Route} from 'react-router-dom';
 
 const PrivateRoute = ({component:Component,...rest}) => {
-    const user =(JSON.parse(localStorage.getItem('profile')));
+    const user = JSON.parse(localStorage.getItem('profile'));
     return(
         <Route
             {...rest}
@@ -10,7 +10,7 @@ const PrivateRoute = ({component:Component,...rest}) => {
                 user? (
                     <Component {...props} />
                 ) : (
-                    <Redirect to={{ pathname:'/auth',state:{from:props.location}}}/>
+                    <Redirect to={{ pathname:'/auth/login',state:{from:props.location}}}/>
                 )
             }
         />

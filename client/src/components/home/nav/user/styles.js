@@ -10,8 +10,8 @@ export default makeStyles(() => ({
         cursor:'pointer'
     },
     toggleBarOn:{
-        width:'250px',
-        height:'270px',
+        minWidth:'210px',
+        minHeight:'240px',
         background:'#fff',
         position:'absolute',
         top:'50px',

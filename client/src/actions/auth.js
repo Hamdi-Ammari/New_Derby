@@ -7,27 +7,25 @@ export const googleLogIn = (data) => {
     }
 }
 
-export const signup = (inputValue,history) => async (dispatch) => {
+export const signup = (inputValue) => async (dispatch) => {
     try {
-        const {data} = await api.signup(inputValue);
+        const {data} = await api.register(inputValue);
         dispatch({
             type:'AUTH',
             payload:data
         })
-        history.push('/auth')
     } catch (error) {
         console.log(error)
     }
 }
 
-export const signin = (inputValue,history) => async (dispatch) => {
+export const signin = (inputValue) => async (dispatch) => {
     try {
-        const {data} = await api.signin(inputValue);
+        const {data} = await api.login(inputValue);
         dispatch({
             type:'AUTH',
             payload:data
         })
-        history.push('/')
     } catch (error) {
         console.log(error)
     }

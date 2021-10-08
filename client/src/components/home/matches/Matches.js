@@ -6,13 +6,13 @@ import Match from './match/Match';
 import Calender from './Calender';
 
 
+
 const Matches = ({date,setDate}) => {
     const classes = useStyles();
     const {matches} = useSelector(state => state.matchReducer);
     const dayMatches = matches.filter(m => m.date === date);
     const sortedMatches = dayMatches.sort((a,b) => (a.time > b.time ? 1 : -1));
 
-    
     return(
         <>
             <div className={classes.calendarDiv}>

@@ -1,10 +1,10 @@
 import React,{useEffect} from 'react';
 import {useDispatch,useSelector} from 'react-redux';
-import {useParams,useHistory} from 'react-router-dom';
+import {useParams} from 'react-router-dom';
 import {Typography,CircularProgress} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
-import {getMatch} from '../../../actions/matches';
+import {watchMatch} from '../../../actions/matches';
 
 const useStyles = makeStyles({
     matchInfo:{
@@ -23,16 +23,15 @@ const useStyles = makeStyles({
  
 const VideoPlayer = () => {
     const classes = useStyles();
-    const {match} = useSelector(state => state.matchReducer);
+    const {matchToWatch} = useSelector(state => state.matchReducer);
     const dispatch = useDispatch();
-    const history = useHistory();
     const {id} = useParams();
 
     useEffect(() => {
-        dispatch(getMatch(id))
+        dispatch(watchMatch(id))
     },[id])
 
-    if(!match) return (
+    if(!matchToWatch) return (
         <div className={classes.circularDiv}>
             <CircularProgress size='7rem' thickness={1} className={classes.circular} />
         </div>
@@ -40,9 +39,9 @@ const VideoPlayer = () => {
 
     return(
         <div className={classes.matchInfo}>
-            <Typography variant='h6'>{match.team1}</Typography> &nbsp;
+            <Typography variant='h6'>{matchToWatch.team1}</Typography> &nbsp;
             <Typography variant='h6'>-</Typography> &nbsp;
-            <Typography variant='h6'>{match.team2}</Typography>
+            <Typography variant='h6'>{matchToWatch.team2}</Typography>
         </div>
     )
 }

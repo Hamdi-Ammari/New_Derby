@@ -12,11 +12,23 @@ export const getMatches = () => async (dispatch) => {
     }
 }
 
-export const getMatch = (id) => async (dispatch) => {
+export const watchMatch = (id) => async (dispatch) => {
     try {
-        const {data} = await api.getMatch(id);
+        const {data} = await api.watchMatch(id);
         dispatch({
-            type:'FETCH_MATCH',
+            type:'WATCH_MATCH',
+            payload:data
+        })
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export const getMatchToBuy = (id) => async (dispatch) => {
+    try {
+        const {data} = await api.getMatchToBuy(id);
+        dispatch({
+            type:'MATCH_TO_BUY',
             payload:data
         })
     } catch (error) {
@@ -25,8 +37,9 @@ export const getMatch = (id) => async (dispatch) => {
 }
 
 export const buyMatch = (id) => async (dispatch) => {
+    const user = JSON.parse(localStorage.getItem('profile'));
     try {
-        const {data} = await api.buyMatch(id);
+        const {data} = await api.buyMatch(id,user?.token);
         dispatch({
             type:'BUY_MATCH',
             payload:data
