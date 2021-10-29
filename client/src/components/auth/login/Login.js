@@ -32,7 +32,7 @@ const Login = () => {
                 history.push('/')
             }, 2000);
         } catch (error) {
-            console.log(error.response.data)
+            console.log(`the error is ${error.message}`)
         }
     }
 

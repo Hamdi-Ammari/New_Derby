@@ -27,7 +27,7 @@ export const signin = (inputValue) => async (dispatch) => {
             payload:data
         })
     } catch (error) {
-        console.log(error)
+        console.log(error.message)
     }
 }
 

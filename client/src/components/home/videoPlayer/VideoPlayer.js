@@ -1,25 +1,14 @@
 import React,{useEffect} from 'react';
+import ReactHlsPlayer from 'react-hls-player';
+import ReactPlayer from 'react-player';
 import {useDispatch,useSelector} from 'react-redux';
 import {useParams} from 'react-router-dom';
-import {Typography,CircularProgress} from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
+import {Container,Paper,Typography,CircularProgress} from '@material-ui/core';
+
+import useStyles from './styles';
 
 import {watchMatch} from '../../../actions/matches';
-
-const useStyles = makeStyles({
-    matchInfo:{
-        display:'flex',
-    },
-    circularDiv:{
-        minHeight:'75vh',
-        display:'flex',
-        alignItems:'center',
-        justifyContent:'center',
-    },
-    circular:{
-        color:'#fff',
-    }
-})
+import derby from './derby.jpg';
  
 const VideoPlayer = () => {
     const classes = useStyles();
@@ -38,11 +27,16 @@ const VideoPlayer = () => {
     )
 
     return(
-        <div className={classes.matchInfo}>
-            <Typography variant='h6'>{matchToWatch.team1}</Typography> &nbsp;
-            <Typography variant='h6'>-</Typography> &nbsp;
-            <Typography variant='h6'>{matchToWatch.team2}</Typography>
-        </div>
+        <Container className={classes.container}>
+            <Paper elevation={4} className={classes.matchInfo}>
+                <Typography variant='h6'>{matchToWatch.team1}</Typography> &nbsp;
+                <Typography variant='h6'>-</Typography> &nbsp;
+                <Typography variant='h6'>{matchToWatch.team2}</Typography>
+            </Paper>
+            <div>
+                <img src={derby} alt='derby'/>
+            </div>
+        </Container>
     )
 }
 
